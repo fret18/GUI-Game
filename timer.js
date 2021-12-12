@@ -33,9 +33,13 @@ function birthdayCountdown() {
         clearInterval(mytimer)
         return
     }
-
+    /*  Check to see if it is during daylight savings or not */
+    if((daysleft < 260) && (daysleft > 133)) {
+        timer.innerHTML = 'It is exactly:' + "<br/> " + daysleft + ' Days' + "<br/> " + (hoursleft+1) +  ' Hours' + "<br/> " +  minutesleft + ' Minutes' + "<br/>" + "And " + secondssleft +' Seconds' + "<br/>" + "Until Dietrich's 24th Birthday!"
+    } else {
     /* Update the time left until my birthday every second */
-    timer.innerHTML = 'It is exactly:' + "<br/> " + daysleft + ' Days' + "<br/> " + hoursleft +  ' Hours' + "<br/> " +  minutesleft + ' Minutes' + "<br/>" + "And " + secondssleft +' Seconds' + "<br/>" + "Until Dietrich's 24th Birthday!"
-}
+     timer.innerHTML = 'It is exactly:' + "<br/> " + daysleft + ' Days' + "<br/> " + hoursleft +  ' Hours' + "<br/> " +  minutesleft + ' Minutes' + "<br/>" + "And " + secondssleft +' Seconds' + "<br/>" + "Until Dietrich's 24th Birthday!"
 
+    }
+}
 let mytimer = setInterval(birthdayCountdown, sec)
